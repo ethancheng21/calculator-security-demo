@@ -58,7 +58,26 @@ Dependency-Check scanned 0 dependencies and found **0 vulnerabilities** (0 CVEs)
 
 ## SAST Results (CodeQL)
 - Total issues: 1
-- By type: [breakdown]
-
+- By type: High severity: 1
+File: app.py
+Description: debug=True exposes sensitive debugging tools and can lead to remote code execution.
 ## Recommendations
-[Based on findings, what should be prioritized?]
+Add missing security headers
+
+Fix CSP, X-Frame-Options, X-Content-Type-Options, and Permissions-Policy to improve browser security.
+
+Hide server version information
+
+Remove or mask the Werkzeug version shown in response headers.
+
+Turn off Flask debug mode
+
+Set debug=False to prevent exposing sensitive debugging tools.
+
+Improve SCA setup
+
+Adjust the workflow if needed so Python dependencies can be scanned properly.
+
+Re-scan after fixes
+
+Run DAST, SAST, and SCA again to confirm all issues are resolved.

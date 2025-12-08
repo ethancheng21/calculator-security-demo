@@ -1,0 +1,21 @@
+Scanner Comparison
+Only CodeQL (SAST) Found
+-Flask application running in debug=True (high-severity)
+-Misconfiguration visible only in source code
+-Logic-level issue that DAST cannot detect
+
+Only ZAP (DAST) Found
+-Missing security headers (CSP, X-Frame-Options, X-Content-Type-Options, Permissions-Policy)
+-Runtime configuration issues such as server version leakage (Werkzeug version exposed)
+-HTTP-only site warning
+-Spectre-related site isolation issues
+-These are all behaviors seen during live HTTP scanning, not in source code
+
+Only Dependency-Check (SCA) Found
+-No unique findings
+-SCA detected 0 dependencies and 0 vulnerabilities
+-(Default GitHub SCA workflow does not scan Python requirements)
+
+All Three Tools
+-None
+-Each tool scanned a different layer and produced different types of results
